@@ -29,6 +29,21 @@ void generatebillBody(char item[30], int qty, float price){
 }
 
 
+struct items{
+    char item[20];
+    float price;
+    int qty;
+};
+
+struct orders{
+    char customer[50];
+    char date[50];
+    int numOfItems;
+    struct items itm[50];
+
+};
+
+
 void generateBillFooter(float total){
     printf("\n");
     float dis = 0.1*total;
@@ -50,12 +65,33 @@ void generateBillFooter(float total){
 int main(){
         //dashboard
 
-    printf("\t===================KINGS 3AT RESTAURANT===================");
+    int opt;
+    struct orders ord;
+
+    printf("\t===================KINGS 3AT RESTAURANT===================\n");
     printf("\n1.Generate Invoice");
     printf("\n2.Show all invoice");
     printf("\n3.Search Invoice");
     printf("\n4.Exit\n");
 
+    printf("\n\nPlease select your prefered operation:");
+    scanf("%d",&opt);
+    fgetc(stdin);
+switch(opt){
+    case 1:
+    printf("\nPlease enter the name of the customer:");
+    fgets(ord.customer,50,stdin); 
+    ord.customer[strlen(ord.customer)-1] = 0; // to prevent printing of \n at the end of the string we assign it a 0 instead
+    strcpy(ord.date,__DATE__); //Date statement gets current date and stores it in ord.date
+    
+
+}
+
+
+
+
+    
     printf("\n\n");
+
     return 0;
 }
