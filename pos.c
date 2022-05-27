@@ -65,7 +65,7 @@ void generateBillFooter(float total){
 int main(){
         //dashboard
 
-    int opt;
+    int opt,n;
     struct orders ord;
 
     printf("\t===================KINGS 3AT RESTAURANT===================\n");
@@ -83,7 +83,23 @@ switch(opt){
     fgets(ord.customer,50,stdin); 
     ord.customer[strlen(ord.customer)-1] = 0; // to prevent printing of \n at the end of the string we assign it a 0 instead
     strcpy(ord.date,__DATE__); //Date statement gets current date and stores it in ord.date
+
+    printf("\nPlease enter the number of items:\t");
+    scanf("%d", &n);
+
+    for(int i=0; i<n; i++){
+        fgetc(stdin);
+        printf("\n\n");
+        printf("Please enter the item: %d", i+1);
+        fgets(ord.itm[i].item,20,stdin); // input query for the item
+        ord.itm[i].item[strlen( ord.itm[i].item)-1] = 0;
+        printf("\nPlease enter the quantity:\t");
+        scanf("%d",&ord.itm[i].qty);
+        printf("\nPlease enter the unit price: \t");
+        scanf("%f",&ord.itm[i].price);
+    }
     
+
 
 }
 
